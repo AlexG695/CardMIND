@@ -23,10 +23,10 @@ class HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  CollectionReference coleccionLDR =
+  CollectionReference? coleccionLDR =
       FirebaseFirestore.instance.collection('sensor LDR');
 
-  CollectionReference coleccionULTRA =
+  CollectionReference? coleccionULTRA =
       FirebaseFirestore.instance.collection('sensor ULTRA');
 
   var currentIndex = 0;
@@ -72,33 +72,33 @@ class HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               StreamBuilder(
-                stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
+                stream: coleccionLDR!.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     return Text(
-                        snapshot.data.data()['Estado'] ?? 'Desactivado');
+                        snapshot.data!.data()['Estado'] ?? 'Desactivado');
                   } else {
                     return const CircularProgressIndicator();
                   }
                 },
               ),
               StreamBuilder(
-                stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
+                stream: coleccionLDR!.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     return Text(
-                        snapshot.data.data()['Mensaje'] ?? 'Puerta cerrada');
+                        snapshot.data!.data()['Mensaje'] ?? 'Puerta cerrada');
                   } else {
                     return const CircularProgressIndicator();
                   }
                 },
               ),
               StreamBuilder(
-                stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
+                stream: coleccionULTRA!.doc('676lC9BKFOLSivyA8wB3').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     return Text(
-                        snapshot.data.data1()['Estado'] ?? 'Desactivado');
+                        snapshot.data!.data1()['Estado'] ?? 'Desactivado');
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -110,10 +110,10 @@ class HomeScreenState extends State<HomeScreen> {
                 color: Colors.grey,
               ),
               StreamBuilder(
-                stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
+                stream: coleccionULTRA!.doc('676lC9BKFOLSivyA8wB3').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    return Text(snapshot.data.data()['Mensaje'] ??
+                    return Text(snapshot.data!.data()['Mensaje'] ??
                         'No hay objetos cercanos');
                   } else {
                     return const CircularProgressIndicator();
