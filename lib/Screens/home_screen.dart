@@ -91,7 +91,7 @@ class HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),
-              StreamBuilder(
+              /*StreamBuilder(
                 stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
@@ -100,7 +100,7 @@ class HomeScreenState extends State<HomeScreen> {
                     return const CircularProgressIndicator();
                   }
                 },
-              ),
+              ),*/
               StreamBuilder(
                 stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
