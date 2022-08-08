@@ -75,12 +75,11 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data.data()["Estado"] == null) {
+                    if (snapshot.data["Estado"] == null) {
                       return const Text(
                           'No se detecta nada cerca del automovil');
                     }
-                    return Text(
-                        snapshot.data.data()["Estado"] ?? "Desactivado");
+                    return Text(snapshot.data["Estado"] ?? "Desactivado");
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -90,11 +89,11 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data.data()["Mensaje"] == null) {
+                    if (snapshot.data["Mensaje"] == null) {
                       return const Text("La puerta está cerrada");
                     }
                     return Text(
-                        snapshot.data.data()["Mensaje"] ?? "Puerta cerrada");
+                        snapshot.data.data["Mensaje"] ?? "Puerta cerrada");
                   } else {
                     return const CircularProgressIndicator();
                   }
