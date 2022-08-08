@@ -77,8 +77,10 @@ class HomeScreenState extends State<HomeScreen> {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data["Estado"] != null) {
                       return Text(snapshot.data["Estado"] ?? "Desactivado");
+                    } else {
+                      return const Text(
+                          'No se detecta nada cerca del automovil');
                     }
-                    return const Text('No se detecta nada cerca del automovil');
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -91,8 +93,9 @@ class HomeScreenState extends State<HomeScreen> {
                     if (snapshot.data["Mensaje"] != null) {
                       return Text(
                           snapshot.data.data["Mensaje"] ?? "Puerta cerrada");
+                    } else {
+                      return const Text("La puerta está cerrada");
                     }
-                    return const Text("La puerta está cerrada");
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -104,8 +107,9 @@ class HomeScreenState extends State<HomeScreen> {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data["Estado"] != null) {
                       return Text(snapshot.data["Estado"] ?? "Desactivado");
+                    } else {
+                      return const Text("Desactivado");
                     }
-                    return const Text("Desactivado");
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -123,8 +127,9 @@ class HomeScreenState extends State<HomeScreen> {
                     if (snapshot.data["Mensaje"] != null) {
                       return Text(snapshot.data["Mensaje"] ??
                           "No hay objetos cercanos");
+                    } else {
+                      return const Text("No hay objetos cercanos");
                     }
-                    return const Text("No hay objetos cercanos");
                   } else {
                     return const CircularProgressIndicator();
                   }
