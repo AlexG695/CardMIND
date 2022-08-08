@@ -62,9 +62,10 @@ class HomeScreenState extends State<HomeScreen> {
         ],
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            /* StreamBuilder(
+        child: Center(
+          child: Column(
+            children: [
+              /* StreamBuilder(
               stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.active) {
@@ -74,37 +75,44 @@ class HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),*/
-            StreamBuilder(
-              stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if (snapshot.connectionState == ConnectionState.active) {
-                  return Text(snapshot.data.data()['Mensaje']);
-                } else {
-                  return const CircularProgressIndicator();
-                }
-              },
-            ),
-            /*StreamBuilder(
-              stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if (snapshot.connectionState == ConnectionState.active) {
-                  return Text(snapshot.data.data()['Estado']);
-                } else {
-                  return const CircularProgressIndicator();
-                }
-              },
-            ),*/
-            StreamBuilder(
-              stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
-              builder: (BuildContext context, AsyncSnapshot snapshot) {
-                if (snapshot.connectionState == ConnectionState.active) {
-                  return Text(snapshot.data.data()['Mensaje']);
-                } else {
-                  return const CircularProgressIndicator();
-                }
-              },
-            ),
-          ],
+              const Divider(
+                indent: 30,
+                endIndent: 30,
+                color: Colors.grey,
+              ),
+              Spacer(),
+              StreamBuilder(
+                stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState == ConnectionState.active) {
+                    return Text(snapshot.data.data()['Mensaje']);
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                },
+              ),
+              StreamBuilder(
+                stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState == ConnectionState.active) {
+                    return Text(snapshot.data.data1()['Estado']);
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                },
+              ),
+              StreamBuilder(
+                stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
+                builder: (BuildContext context, AsyncSnapshot snapshot) {
+                  if (snapshot.connectionState == ConnectionState.active) {
+                    return Text(snapshot.data.data1()['Mensaje']);
+                  } else {
+                    return const CircularProgressIndicator();
+                  }
+                },
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
