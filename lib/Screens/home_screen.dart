@@ -85,7 +85,8 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    return Text(snapshot.data.data()['Mensaje']);
+                    return Text(
+                        snapshot.data.data()['Mensaje'] ?? 'Desactivado');
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -110,7 +111,8 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    return Text(snapshot.data.data1()['Mensaje']);
+                    return Text(snapshot.data.data1()['Mensaje'] ??
+                        'No hay objetos cercanos');
                   } else {
                     return const CircularProgressIndicator();
                   }
