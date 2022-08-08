@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'CarMind',
-      routes: {'home': (BuildContext context) => HomeScreen()},
+      routes: {'home': (BuildContext context) => const HomeScreen()},
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
