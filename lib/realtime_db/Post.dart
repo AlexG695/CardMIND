@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class DisplayData {
+class Post {
   String? mensaje = '';
   String? estado = '';
-  DisplayData(this.mensaje, this.estado);
+  Post(this.mensaje, this.estado);
 
-  DisplayData.fromJson(var value) {
+  Post.fromJson(var value) {
     mensaje = value['mensaje'];
     estado = value['estado'];
   }
