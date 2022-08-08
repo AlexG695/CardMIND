@@ -10,7 +10,7 @@ var currentIndex = 0;
 
 //DatabaseReference? CarMIND;
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({Key key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   HomeScreenState createState() => HomeScreenState();
@@ -72,33 +72,40 @@ class HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               StreamBuilder(
-                stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
+                stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
+                    if (snapshot.data == null) {
+                      return const Text(
+                          'No se detecta nada cerca del automovil');
+                    }
                     return Text(
-                        snapshot.data.data()['Estado'] ?? 'Desactivado');
+                        snapshot.data.data()["Estado"] ?? "Desactivado");
                   } else {
                     return const CircularProgressIndicator();
                   }
                 },
               ),
               StreamBuilder(
-                stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
+                stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
+                    if (snapshot.data == null) {
+                      return const Text("La puerta está cerrada");
+                    }
                     return Text(
-                        snapshot.data.data()['Mensaje'] ?? 'Puerta cerrada');
+                        snapshot.data.data()["Mensaje"] ?? "Puerta cerrada");
                   } else {
                     return const CircularProgressIndicator();
                   }
                 },
               ),
               StreamBuilder(
-                stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
+                stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     return Text(
-                        snapshot.data.data1()['Estado'] ?? 'Desactivado');
+                        snapshot.data.data1()["Estado"] ?? "Desactivado");
                   } else {
                     return const CircularProgressIndicator();
                   }
@@ -110,11 +117,11 @@ class HomeScreenState extends State<HomeScreen> {
                 color: Colors.grey,
               ),
               StreamBuilder(
-                stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
+                stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    return Text(snapshot.data.data()['Mensaje'] ??
-                        'No hay objetos cercanos');
+                    return Text(snapshot.data.data()["Mensaje"] ??
+                        "No hay objetos cercanos");
                   } else {
                     return const CircularProgressIndicator();
                   }
