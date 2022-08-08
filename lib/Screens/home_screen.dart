@@ -76,7 +76,8 @@ class HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data["Estado"] != null) {
-                      return Text(snapshot.data()["Estado"] ?? "Desactivado");
+                      return Text(
+                          snapshot.data.data()["Estado"] ?? "Desactivado");
                     } else {
                       return const Text(
                           'No se detecta nada cerca del automovil');
