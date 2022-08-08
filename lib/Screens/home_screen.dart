@@ -64,7 +64,7 @@ class HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            StreamBuilder(
+            /* StreamBuilder(
               stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.active) {
@@ -73,7 +73,7 @@ class HomeScreenState extends State<HomeScreen> {
                   return const CircularProgressIndicator();
                 }
               },
-            ),
+            ),*/
             StreamBuilder(
               stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -84,7 +84,7 @@ class HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),
-            StreamBuilder(
+            /*StreamBuilder(
               stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
                 if (snapshot.connectionState == ConnectionState.active) {
@@ -93,7 +93,7 @@ class HomeScreenState extends State<HomeScreen> {
                   return const CircularProgressIndicator();
                 }
               },
-            ),
+            ),*/
             StreamBuilder(
               stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
               builder: (BuildContext context, AsyncSnapshot snapshot) {
