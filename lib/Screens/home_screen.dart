@@ -75,11 +75,6 @@ class HomeScreenState extends State<HomeScreen> {
                 }
               },
             ),*/
-              const Divider(
-                indent: 30,
-                endIndent: 30,
-                color: Colors.grey,
-              ),
               StreamBuilder(
                 stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -100,6 +95,11 @@ class HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),*/
+              const Divider(
+                indent: 30,
+                endIndent: 30,
+                color: Colors.grey,
+              ),
               StreamBuilder(
                 stream: coleccionULTRA.doc('676lC9BKFOLSivyA8wB3').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -114,7 +114,7 @@ class HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
+      /*bottomNavigationBar: Container(
         margin: EdgeInsets.all(displayWidth * .05),
         height: displayWidth * .155,
         decoration: BoxDecoration(
@@ -221,7 +221,7 @@ class HomeScreenState extends State<HomeScreen> {
             ),
           ),
         ),
-      ),
+      ),*/
     );
   }
 }
