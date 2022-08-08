@@ -17,6 +17,12 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeScreenState extends State<HomeScreen> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+  }
+
   CollectionReference coleccionLDR =
       FirebaseFirestore.instance.collection('sensor LDR');
 
@@ -223,5 +229,9 @@ class HomeScreenState extends State<HomeScreen> {
         ),
       ),*/
     );
+  }
+
+  void refresh() {
+    setState(() {}); // CTRL + S
   }
 }
