@@ -6,7 +6,7 @@ import 'package:singin/reusable_widgets/reusable_widget.dart';
 import 'package:singin/utils/color_utils.dart';
 
 class SignInScreen extends StatefulWidget {
-  const SignInScreen({Key? key}) : super(key: key);
+  const SignInScreen({Key key}) : super(key: key);
 
   @override
   _SignInScreenState createState() => _SignInScreenState();

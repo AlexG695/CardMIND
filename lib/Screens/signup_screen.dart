@@ -7,7 +7,7 @@ import 'package:singin/reusable_widgets/reusable_widget.dart';
 import '../utils/color_utils.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  const SignUpScreen({Key key}) : super(key: key);
 
   @override
   _SignUpScreenState createState() => _SignUpScreenState();
