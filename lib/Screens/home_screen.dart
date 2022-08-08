@@ -80,7 +80,7 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data['Estado'] != null) {
+                    if (snapshot.data.data() != null) {
                       return Text('Estado: ' + snapshot.data.data()['Estado']);
                     } else {
                       return const Text(
@@ -95,7 +95,7 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data['Mensaje'] != null) {
+                    if (snapshot.data.data() != null) {
                       return const Text("La puerta está cerrada");
                     } else {
                       return Text(
@@ -110,7 +110,7 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data['Estado'] != null) {
+                    if (snapshot.data.data() != null) {
                       return Text('Estado: ' + snapshot.data.data()['Estado']);
                     } else {
                       return const Text("Desactivado");
@@ -124,7 +124,7 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data['Mensaje'] != null) {
+                    if (snapshot.data.data() != null) {
                       return const Text("No hay objetos cercanos");
                     } else {
                       return Text(
