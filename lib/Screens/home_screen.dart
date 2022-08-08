@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_interpolation_to_compose_strings
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -73,25 +75,13 @@ class HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            children: <Widget>[
-              const Text('Estado: ' "Desactivado"),
-              const Text('Mensaje: ' "Puerta cerrada"),
-              const Divider(
-                endIndent: 30,
-                indent: 30,
-                color: Colors.grey,
-              ),
-              const Text('Estado: ' "Desactivado"),
-              const Text('Mensaje: ' "Sin objetos cercanos"),
-              ElevatedButton(
-                  onPressed: cambio, child: const Text('Cambiar estado'))
-              /*StreamBuilder(
+            children: [
+              StreamBuilder(
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data['Estado'] != null) {
-                      return Text(
-                          snapshot.data.data()['Estado'] ?? "Desactivado");
+                      return Text('Estado: ' + snapshot.data.data()['Estado']);
                     } else {
                       return const Text(
                           'No se detecta nada cerca del automovil');
@@ -109,7 +99,7 @@ class HomeScreenState extends State<HomeScreen> {
                       return const Text("La puerta está cerrada");
                     } else {
                       return Text(
-                          snapshot.data.data()['Mensaje'] ?? "Puerta cerrada");
+                          'Mensaje: ' + snapshot.data.data()['Mensaje']);
                     }
                   } else {
                     return const CircularProgressIndicator();
@@ -121,8 +111,7 @@ class HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data['Estado'] != null) {
-                      return Text(
-                          snapshot.data.data()['Estado'] ?? "Desactivado");
+                      return Text('Estado: ' + snapshot.data.data()['Estado']);
                     } else {
                       return const Text("Desactivado");
                     }
@@ -138,14 +127,14 @@ class HomeScreenState extends State<HomeScreen> {
                     if (snapshot.data['Mensaje'] != null) {
                       return const Text("No hay objetos cercanos");
                     } else {
-                      return Text(snapshot.data.data()['Mensaje'] ??
-                          "No hay objetos cercanos");
+                      return Text(
+                          'Mensaje: ' + snapshot.data.data()['Mensaje']);
                     }
                   } else {
                     return const CircularProgressIndicator();
                   }
                 },
-              ),*/
+              ),
             ],
           ),
         ),
