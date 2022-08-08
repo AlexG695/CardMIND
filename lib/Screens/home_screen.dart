@@ -96,10 +96,10 @@ class HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data.data()['Mensaje'] != null) {
-                      return const Text("La puerta está cerrada");
-                    } else {
                       return Text(
                           'Mensaje: ' + snapshot.data.data()['Mensaje']);
+                    } else {
+                      return const Text("La puerta está cerrada");
                     }
                   } else {
                     return const CircularProgressIndicator();
@@ -125,10 +125,10 @@ class HomeScreenState extends State<HomeScreen> {
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
                     if (snapshot.data.data()['Mensaje'] != null) {
-                      return const Text("No hay objetos cercanos");
-                    } else {
                       return Text(
                           'Mensaje: ' + snapshot.data.data()['Mensaje']);
+                    } else {
+                      return const Text("No hay objetos cercanos");
                     }
                   } else {
                     return const CircularProgressIndicator();
