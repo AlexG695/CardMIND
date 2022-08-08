@@ -21,7 +21,7 @@ class HomeScreenState extends State<HomeScreen> {
       FirebaseFirestore.instance.collection('sensor LDR');
 
   CollectionReference coleccionULTRA =
-      FirebaseFirestore.instance.collection('sensor LDR');
+      FirebaseFirestore.instance.collection('sensor ULTRA');
 
   var currentIndex = 0;
   List<IconData> listOfIcons = [
