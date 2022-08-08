@@ -75,9 +75,9 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data["Estado"] != null) {
+                    if (snapshot.data['Estado'] != null) {
                       return Text(
-                          snapshot.data.data()["Estado"] ?? "Desactivado");
+                          snapshot.data.data()['Estado'] ?? "Desactivado");
                     } else {
                       return const Text(
                           'No se detecta nada cerca del automovil');
@@ -91,9 +91,9 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data["Mensaje"] != null) {
+                    if (snapshot.data['Mensaje'] != null) {
                       return Text(
-                          snapshot.data.data()["Mensaje"] ?? "Puerta cerrada");
+                          snapshot.data.data()['Mensaje'] ?? "Puerta cerrada");
                     } else {
                       return const Text("La puerta está cerrada");
                     }
@@ -106,8 +106,9 @@ class HomeScreenState extends State<HomeScreen> {
                 stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data["Estado"] != null) {
-                      return Text(snapshot.data()["Estado"] ?? "Desactivado");
+                    if (snapshot.data['Estado'] != null) {
+                      return Text(
+                          snapshot.data.data()['Estado'] ?? "Desactivado");
                     } else {
                       return const Text("Desactivado");
                     }
@@ -116,17 +117,12 @@ class HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),
-              const Divider(
-                indent: 30,
-                endIndent: 30,
-                color: Colors.grey,
-              ),
               StreamBuilder(
                 stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
-                    if (snapshot.data["Mensaje"] != null) {
-                      return Text(snapshot.data.data()["Mensaje"] ??
+                    if (snapshot.data['Mensaje'] != null) {
+                      return Text(snapshot.data.data()['Mensaje'] ??
                           "No hay objetos cercanos");
                     } else {
                       return const Text("No hay objetos cercanos");
