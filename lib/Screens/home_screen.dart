@@ -80,7 +80,6 @@ class HomeScreenState extends State<HomeScreen> {
                 endIndent: 30,
                 color: Colors.grey,
               ),
-              Spacer(),
               StreamBuilder(
                 stream: coleccionLDR.doc('sh3C4XK69wRtO24Pg59Q').snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
