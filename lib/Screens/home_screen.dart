@@ -44,6 +44,9 @@ class HomeScreenState extends State<HomeScreen> {
     'Account',
   ];
 
+  bool estado = true;
+  bool estado2 = true;
+
   void callEmergency() {
     launch("tel://911");
   }
@@ -70,7 +73,18 @@ class HomeScreenState extends State<HomeScreen> {
       body: SingleChildScrollView(
         child: Center(
           child: Column(
-            children: [
+            children: <Widget>[
+              const Text('Estado: ' "Desactivado"),
+              const Text('Mensaje: ' "Puerta cerrada"),
+              const Divider(
+                endIndent: 30,
+                indent: 30,
+                color: Colors.grey,
+              ),
+              const Text('Estado: ' "Desactivado"),
+              const Text('Mensaje: ' "Sin objetos cercanos"),
+              ElevatedButton(
+                  onPressed: cambio, child: const Text('Cambiar estado'))
               /*StreamBuilder(
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -86,7 +100,7 @@ class HomeScreenState extends State<HomeScreen> {
                     return const CircularProgressIndicator();
                   }
                 },
-              ),*/
+              ),
               StreamBuilder(
                 stream: coleccionLDR.doc("sh3C4XK69wRtO24Pg59Q").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -102,7 +116,7 @@ class HomeScreenState extends State<HomeScreen> {
                   }
                 },
               ),
-              /*StreamBuilder(
+              StreamBuilder(
                 stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   if (snapshot.connectionState == ConnectionState.active) {
@@ -116,7 +130,7 @@ class HomeScreenState extends State<HomeScreen> {
                     return const CircularProgressIndicator();
                   }
                 },
-              ),*/
+              ),
               StreamBuilder(
                 stream: coleccionULTRA.doc("676lC9BKFOLSivyA8wB3").snapshots(),
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
@@ -131,7 +145,7 @@ class HomeScreenState extends State<HomeScreen> {
                     return const CircularProgressIndicator();
                   }
                 },
-              ),
+              ),*/
             ],
           ),
         ),
@@ -245,6 +259,10 @@ class HomeScreenState extends State<HomeScreen> {
         ),
       ),*/
     );
+  }
+
+  void cambio() {
+    estado == false;
   }
 
   void refresh() {
